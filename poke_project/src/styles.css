@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "PokeHollow";
+    src: url(/assets/font/pokemon/PokemonHollow.ttf);
+}
+
+@font-face {
+    font-family: "PokeSolid";
+    src: url(assets/font/pokemon/PokemonSolid.ttf)
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, PokeHollow, PokemonSolid, "Helvetica Neue", sans-serif;background-color: black;color: aliceblue;}

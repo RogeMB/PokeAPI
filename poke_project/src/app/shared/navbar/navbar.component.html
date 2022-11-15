@@ -1,0 +1,41 @@
+<nav class="navbar rounded sticky-top navbar-expand-lg bg-light shadowCustom">
+    <div class="container-fluid align-item-center">
+      <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="navbar-brand fw-bold fs-3 customText" href="#">
+        <img [routerLink]="['/home']" routerLinkActive="router-link-active" src="../../../assets/img/pokeBall.png" alt="Logo pokeApi" width="55" height="auto" class="d-inline-block ">
+        Poke API
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse fw-bolder" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="nav-link active customTextII" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="nav-link active customTextII" aria-current="page" href="#">Pokemons</a>
+          </li>
+
+         <!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Opciones
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item disabled" href="#">Action</a></li>
+              <li><a class="dropdown-item disabled" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item disabled" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        -->
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-success customBut" type="submit"><mat-icon class="pt-1">search</mat-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  

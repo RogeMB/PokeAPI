@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="text-center">
+    <img
+      src="../../../assets/img/pokeApi.png"
+      class="img-fluid customImg customAnimationTitle"
+      alt="Logo Pokeapi"
+    />
+  </div>
+  <div class="row row-cols-1 row-cols-md-4 g-4 mb-2">
+    <div *ngFor="let pokemon of pokemonsList" class="col">
+      <div
+        class="card h-100 text-dark border border-3 border-primary rounded wrapper"
+      >
+        <img
+          [src]="getPhotoUrl(pokemon) | domSecurity"
+          class="card-img-top customAnimationImg"
+          alt="Pokemon Imagen"
+          (click)="pokemonDetails(pokemon.name)"
+        />
+        <div class="card-body">
+          <h5 class="card-title fw-bold text-center customTitle">
+            {{ capitalize(pokemon) }}
+          </h5>
+        </div>
+        <div class="card-footer text-center text-bg-warning rounded-top text-muted">
+          Click on the image to get more details!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-around pt-2 pb-3">
+    <button
+      class="btn btn-large w-10 button-oldSchool"
+      role="button"
+      (click)="previousPage()"
+      [disabled]="buttonActive"
+    >
+      Previous
+    </button>
+    <button
+      class="btn btn-large w-10 button-oldSchool"
+      role="button"
+      (click)="nextPage()"
+    >
+      Next
+    </button>
+  </div>
+</div>
