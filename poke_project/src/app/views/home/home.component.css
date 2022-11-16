@@ -3,58 +3,56 @@
   perspective: 1000px;
   /*transform:rotateX(20deg) rotateY(-15deg); Inclinación*/
   transform-style: preserve-3d;
-	transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
   perspective: 1000px;
 }
 
-.card:hover{
+.card:hover {
   transform: scale(0.9);
-  box-shadow: 0px 0px 40px rgb(206, 48, 48) inset, 0px 0px 30px white;
+  box-shadow: 0px 0px 30px rgb(206, 48, 48) inset, 0px 0px 30px white;
+  /*filter: drop-shadow(30px 10px 4px #4444dd);*/
   transition: all 0.5s linear;
 }
 
-
 /* CardImg */
 .customImg {
-    width: 20vw;
-    height: auto;
-    min-width: 200px;
-    min-height: 100px;
+  width: 20vw;
+  height: auto;
+  min-width: 200px;
+  min-height: 100px;
 }
 
 .wrapper {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .wrapper img {
-    opacity: 0.65;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: all 500ms ease-in-out;
-    cursor: pointer;
+  opacity: 0.65;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
 }
 
 .wrapper img:hover {
-    opacity: 1;
-    transform: scale(1.1);
-    transition: all 500ms ease-in-out;
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 500ms ease-in-out;
 }
-
 
 /* CartTitle */
 .customTitle {
-    font-family: PokeSolid, Roboto; 
-    font-size: 1.5rem; 
-    letter-spacing: 5px !important;
-    color: rgb(255, 189, 21);
-    text-align: center;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 00px 0px 25px rgb(140, 0, 255) inset;
-    background-color: rgb(0, 132, 255);
+  font-family: PokeSolid, Roboto, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 5px !important;
+  color: rgb(255, 189, 21);
+  text-align: center;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 00px 0px 25px rgb(140, 0, 255) inset;
+  background-color: rgb(0, 132, 255);
 }
-
 
 /* PAGE BUTTONS */
 .button-oldSchool {
@@ -68,7 +66,7 @@
   color: rgb(0, 0, 0);
   cursor: pointer;
   display: flex;
-  font-family: PokeSolid,sans-serif;
+  font-family: PokeSolid, sans-serif;
   justify-content: center;
   line-height: 24px;
   max-width: 100%;
@@ -94,7 +92,7 @@
 }
 
 .button-oldSchool:hover:after {
-    transform: translate(8px, 8px);
+  transform: translate(8px, 8px);
 }
 
 .button-oldSchool:active {
@@ -104,12 +102,12 @@
 }
 
 .button-oldSchool:active:after {
-    transform: translate(-0, -0);
+  transform: translate(-0, -0);
 }
 
 .button-oldSchool:hover {
-    color:black;
-    outline: 0;
+  color: black;
+  outline: 0;
 }
 
 @media (min-width: 768px) {
@@ -118,16 +116,14 @@
   }
 }
 
-/* AnimatedCSS */ 
+/* AnimatedCSS */
 
-.customAnimationTitle { 
-    animation: zoomInDown;
-    animation-duration: 1.5s; 
+.customAnimationTitle {
+  animation: zoomInDown;
+  animation-duration: 1.5s;
 }
-
 
 .customAnimationImg {
-    animation: jackInTheBox; 
-    animation-duration: 1.5s; 
+  animation: jackInTheBox;
+  animation-duration: 1.5s;
 }
-

@@ -1,22 +1,57 @@
 <nav class="navbar rounded sticky-top navbar-expand-lg bg-light shadowCustom">
-    <div class="container-fluid align-item-center">
-      <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="navbar-brand fw-bold fs-3 customText" href="#">
-        <img [routerLink]="['/home']" routerLinkActive="router-link-active" src="../../../assets/img/pokeBall.png" alt="Logo pokeApi" width="55" height="auto" class="d-inline-block ">
-        Poke API
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse fw-bolder" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="nav-link active customTextII" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="nav-link active customTextII" aria-current="page" href="#">Pokemons</a>
-          </li>
+  <div class="container-fluid align-item-center">
+    <a
+      [routerLink]="['/home']"
+      routerLinkActive="router-link-active"
+      class="navbar-brand fw-bold fs-3 customText"
+      href="#"
+    >
+      <img
+        [routerLink]="['/home']"
+        routerLinkActive="router-link-active"
+        src="../../../assets/img/pokeBall.png"
+        alt="Logo pokeApi"
+        width="55"
+        height="auto"
+        class="d-inline-block"
+      />
+      Poke API
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse fw-bolder" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            [routerLink]="['/home']"
+            routerLinkActive="router-link-active"
+            class="nav-link active customTextII"
+            aria-current="page"
+            href="#"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [routerLink]="['/home']"
+            routerLinkActive="router-link-active"
+            class="nav-link active customTextII"
+            aria-current="page"
+            href="#"
+            >Pokemons</a
+          >
+        </li>
 
-         <!--
+        <!--
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Opciones
@@ -29,13 +64,32 @@
             </ul>
           </li>
         -->
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-          <button class="btn btn-outline-success customBut" type="submit"><mat-icon class="pt-1">search</mat-icon>
+      </ul>
+      <form class="d-flexpt-3" role="search">
+        <div
+          class="form-floating input-group input-group-sm rounded align-item-center customForm mb-3"
+        >
+          <input
+            #inputSearch
+            (keyup.enter)="searchMethod(inputSearch.value)"
+            type="search"
+            class="form-control border-0 customInput shadow-lg"
+            id="floatingInput"
+            placeholder="Search Pokemon"
+          />
+          <button
+            (click)="searchMethod(inputSearch.value)"
+            class="btn btn-outline-success rounded customBut"
+            id="button-addon1"
+            type="submit"
+          >
+            <mat-icon class="pt-1">search</mat-icon>
           </button>
-        </form>
-      </div>
+          <label class="text-info fw-light customLabel" for="floatingInput"
+            >Search Pokemon</label
+          >
+        </div>
+      </form>
     </div>
-  </nav>
-  
+  </div>
+</nav>

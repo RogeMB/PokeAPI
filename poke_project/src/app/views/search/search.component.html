@@ -1,1 +1,33 @@
-<p>search works!</p>
+<div class="containter-fluid">
+  <div class="row ms-2 me-2">
+    <div class="col-md-6">
+      <h1 class="text-warning">
+        POKEMON:
+        <small class="text-light text-capitalize">{{ pokemonName }}</small
+        >&nbsp;
+        <img [src]="pokemonGif | domSecurity" [alt]="pokemonName + ' gif'" />
+      </h1>
+      <img [src]="pokemonImg | domSecurity" [alt]="pokemonName" />
+    </div>
+    <div class="col-md-6 mt-2 fs-4 customBackG">
+      <div class="d-inline-block w-50">
+        <h2 class="d-inline text-warning">Description:&nbsp;</h2>
+        <div class="d-inline">{{ description }}</div>
+        <br />
+        <h2 class="d-inline text-warning">Specie:&nbsp;</h2>
+        <div class="d-inline">{{ species }}</div>
+        <br />
+        <h2 class="d-inline text-warning">Weight:&nbsp;</h2>
+        <div class="d-inline">{{ pokemonWeight }} kg</div>
+        <br />
+        <h2 class="d-inline text-warning">Height:&nbsp;</h2>
+        <div class="d-inline">{{ pokemonHeight }} cms</div>
+        <br />
+        <h2 class="d-inline text-warning">Types:</h2>
+        <ul class="d-inline" *ngFor="let item of typeName">
+          <li class="d-inline-block text-capitalize fs-5">{{ item }}.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

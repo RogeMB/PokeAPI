@@ -10,6 +10,7 @@ export interface AbilityResponse {
     name:                string;
     names:               Name[];
     pokemon:             Pokemon[];
+    genera:              any[];
 }
 
 export interface EffectChange {

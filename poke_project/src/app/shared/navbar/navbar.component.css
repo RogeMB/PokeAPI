@@ -1,63 +1,97 @@
+/* FormSearch */
 .customBut {
-   transform: translateX(-59px) ;
+  border: 0px;
+  background-color: rgba(211, 67, 0, 0.521);
+  color: black;
 }
-  
+
+.customBut:hover {
+  color: white;
+  background-color: rgba(35, 177, 0, 0.664);
+}
+
+.customLabel {
+  font-size: 12px;
+  font-family: PokeSolid, Roboto, sans-serif;
+  color: rgb(41, 5, 5) !important;
+}
+
+.customInput {
+  color: rgb(41, 5, 5);
+  font-family: PokeSolid, Roboto;
+  font-size: 15px;
+}
+
+.customInput:focus {
+  background-color: rgba(158, 158, 158, 0.322);
+  color: rgb(41, 5, 5);
+  font-family: PokeSolid, Roboto, sans-serif;
+  font-size: 15px;
+}
+
+/* Shadow */ 
+
 .shadowCustom {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(255, 255, 255, 0.795) 0px -30px 60px 30px, rgba(43, 134, 226, 0.445) 0px -5px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(255, 255, 255, 0.795) 0px -30px 60px 30px,
+    rgba(43, 134, 226, 0.445) 0px -5px 6px 0px inset;
 }
+
+/* Text */ 
 
 .customText {
-    --color-one: hsl(15 90% 55%);
-    --color-two: hsl(40 95% 55%);
-    --bg-size: 400%;
-    font-family: "PokeHollow";
-    font-size: clamp(3rem, 25vmin, 12rem);
-    text-align: center;
-    background: linear-gradient(
-        90deg,
-        var(--color-one),
-        var(--color-two),
-        var(--color-one)
-      )0 0 / var(--bg-size) 100%;
+  --color-one: hsl(15 90% 55%);
+  --color-two: hsl(40 95% 55%);
+  --bg-size: 400%;
+  font-family: "PokeHollow";
+  font-size: clamp(3rem, 25vmin, 12rem);
+  text-align: center;
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
 
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: move-bg 8s infinite linear;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 8s infinite linear;
 }
 
 .customTextII {
-    font-family: "PokeSolid";
-    font-size: 18px;
-    text-align: center;
-    margin-right: 10px;
+  font-family: "PokeSolid";
+  font-size: 18px;
+  text-align: center;
+  margin-right: 10px;
 }
 
 .customTextII:hover {
-    --color-one: hsl(15 90% 55%);
-    --color-two: hsl(40 95% 55%);
-    --bg-size: 400%;
-    transform: scale3d(1.2, 1.2, 1.2);
-    background: linear-gradient(
-        90deg,
-        var(--color-one),
-        var(--color-two),
-        var(--color-one)
-      )0 0 / var(--bg-size) 100%;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: all 150ms ease-in-out;
+  --color-one: hsl(15 90% 55%);
+  --color-two: hsl(40 95% 55%);
+  --bg-size: 400%;
+  transform: scale3d(1.2, 1.2, 1.2);
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 150ms ease-in-out;
 }
 
-
 @media (prefers-reduced-motion: no-preference) {
-    .boujee-text {
-      animation: move-bg 8s linear infinite;
+  .boujee-text {
+    animation: move-bg 8s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
     }
-    @keyframes move-bg {
-      to {
-        background-position: var(--bg-size) 0;
-      }
-    }
+  }
 }

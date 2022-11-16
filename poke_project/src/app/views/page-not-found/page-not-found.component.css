@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+
+.body {
+  font-family: Raleway, Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.body img {
+  width: 100vw;
+  height: auto;
+  display: flex;
+}
+
+.body img:hover {
+  filter: drop-shadow(0px 0px 40px crimson) invert();
+}
+
+.body div {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
+
+.body div:hover {
+  text-shadow: 2px 2px #ff0000;
+}
