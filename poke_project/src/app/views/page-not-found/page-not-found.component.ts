@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { History } from 'swiper';
 
 @Component({
   selector: 'app-page-not-found',
