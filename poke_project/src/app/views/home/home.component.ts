@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Event, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs';
 import { Pokemon } from 'src/app/interfaces/pokemon.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -12,8 +12,10 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class HomeComponent implements OnInit, AfterViewInit {
   previous: number = 0;
   next: number = 0;
+  count: number = 0;
   pokemonsList: Pokemon[] = [];
   buttonActive: boolean = true;
+  buttonActiveII: boolean = false;
   constructor(private pokemonServ: PokemonService, private router: Router) {}
 
   ngOnInit(): void {
@@ -38,6 +40,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
   }
 
+  onImgError(event: any){
+    event.target.src = '../../../assets/img/pokeApi.png'
+   }
+
+  startPage() {
+    this.previous = 0;
+    this.pokemonServ
+      .getPaginationPrevious(this.previous)
+      .pipe(delay(300))
+      .subscribe((resp) => {
+        this.pokemonsList = resp;
+        if (localStorage.getItem('value') === 'start') {
+          this.buttonActive = true;
+          this.buttonActiveII = false;
+        }
+      });
+    this.onActivate();
+  }
+
   previousPage() {
     this.previous = 20;
     this.pokemonServ
@@ -45,28 +66,60 @@ export class HomeComponent implements OnInit, AfterViewInit {
       .pipe(delay(300))
       .subscribe((resp) => {
         this.pokemonsList = resp;
-        if (localStorage.getItem('value') === 'stop') {
-        
+        if (localStorage.getItem('value') === 'start') {
           this.buttonActive = true;
+          this.buttonActiveII = false;
+        } else if (localStorage.getItem('value') === 'final') {
+          this.buttonActive = false;
+          this.buttonActiveII = false;
         }
       });
-
     this.onActivate();
   }
 
   nextPage() {
-    this.next = 20;
+    if (this.pokemonServ.params.offset == 1140){
+      this.next = this.pokemonServ.params.offset;
+      this.pokemonServ
+      .getPaginationNext(this.next)
+      .pipe(delay(300))
+      .subscribe((resp) => {
+        this.pokemonsList = resp;
+        if (localStorage.getItem('value') === 'final') {
+          this.buttonActive = false;
+          this.buttonActiveII = true;
+        }
+      });
+    }else {
+      this.next = 20;
+      this.pokemonServ
+      .getPaginationNext(this.next)
+      .pipe(delay(300))
+      .subscribe((resp) => {
+        this.pokemonsList = resp;
+        if (localStorage.getItem('value') === 'final') {
+          this.buttonActive = false;
+          this.buttonActiveII = true;
+        }
+      });
+    }
+    this.buttonActive = false;
+    this.onActivate();
+  }
+
+  FinalPage() {
+    this.next = 1140;
 
     this.pokemonServ
       .getPaginationNext(this.next)
       .pipe(delay(300))
       .subscribe((resp) => {
         this.pokemonsList = resp;
+        if (localStorage.getItem('value') === 'final') {
+          this.buttonActive = false;
+          this.buttonActiveII = true;
+        }
       });
-
-    localStorage.removeItem('value');
-    this.buttonActive = false;
-
     this.onActivate();
   }
 

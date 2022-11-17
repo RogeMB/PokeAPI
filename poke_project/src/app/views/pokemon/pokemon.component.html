@@ -5,9 +5,17 @@
         POKEMON:
         <small class="text-light text-capitalize">{{ pokemonName }}</small
         >&nbsp;
-        <img [src]="pokemonGif | domSecurity" [alt]="pokemonName + ' gif'" />
+        <img
+          [src]="pokemonGif | domSecurity"
+          [alt]="pokemonName + ' gif'"
+          (error)="onImgError($event)"
+        />
       </h1>
-      <img [src]="pokemonImg | domSecurity" [alt]="pokemonName" />
+      <img
+        [src]="pokemonImg | domSecurity"
+        [alt]="pokemonName"
+        (error)="onImgError($event)"
+      />
     </div>
     <div class="col-md-6 mt-2 fs-4 customBackG">
       <div class="d-inline-block w-50">

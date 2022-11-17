@@ -54,4 +54,7 @@ export class PokemonComponent implements OnInit {
         );
     });
   }
+  onImgError(event: any){
+    event.target.src = '../../../assets/img/pokeApi.png'
+   }
 }

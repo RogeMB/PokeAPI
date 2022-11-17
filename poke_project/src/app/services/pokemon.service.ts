@@ -45,11 +45,10 @@ export class PokemonService {
   }
 
   getPaginationPrevious(previous: number) {
-    this.offsetPage -= previous;
-    if (this.offsetPage === 0) {
-      localStorage.setItem('value', 'stop');
-    }
-    return this.http
+    if (previous == 0){
+      this.offsetPage = previous;
+      localStorage.setItem('value', 'start');
+      return this.http
       .get<PokemonResponse>(
         `${environment.api_base_url}/pokemon/?limit=20&offset=${this.offsetPage}`
       )
@@ -57,17 +56,44 @@ export class PokemonService {
         map((resp) => resp.results),
         catchError((error) => of([]))
       );
+    } else {
+      this.offsetPage -= previous;
+      if (this.offsetPage === 0) {
+        localStorage.setItem('value', 'start');
+      }
+      return this.http
+        .get<PokemonResponse>(
+          `${environment.api_base_url}/pokemon/?limit=20&offset=${this.offsetPage}`
+        )
+        .pipe(
+          map((resp) => resp.results),
+          catchError((error) => of([]))
+        );
+    }
   }
 
   getPaginationNext(next: number) {
-    this.offsetPage += next;
-    return this.http
-      .get<PokemonResponse>(
-        `${environment.api_base_url}/pokemon/?limit=20&offset=${this.offsetPage}`
-      )
-      .pipe(
-        map((resp) => resp.results),
-        catchError((error) => of([]))
-      );
+    if (next > 1120) {
+      this.offsetPage = next;
+      localStorage.setItem('value', 'final');
+      return this.http
+        .get<PokemonResponse>(
+          `${environment.api_base_url}/pokemon/?limit=20&offset=${this.offsetPage}`
+        )
+        .pipe(
+          map((resp) => resp.results),
+          catchError((error) => of([]))
+        );
+    } else {
+      this.offsetPage += next;
+      return this.http
+        .get<PokemonResponse>(
+          `${environment.api_base_url}/pokemon/?limit=20&offset=${this.offsetPage}`
+        )
+        .pipe(
+          map((resp) => resp.results),
+          catchError((error) => of([]))
+        );
+    }
   }
 }

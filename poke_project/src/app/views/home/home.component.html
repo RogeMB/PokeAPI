@@ -12,7 +12,8 @@
         class="card h-100 text-dark border border-3 border-primary rounded wrapper"
       >
         <img
-          [src]="getPhotoUrl(pokemon) | domSecurity"
+          [src]="getPhotoUrl(pokemon) | domSecurity" 
+          (error)="onImgError($event)"
           class="card-img-top customAnimationImg"
           alt="Pokemon Imagen"
           (click)="pokemonDetails(pokemon.name)"
@@ -35,6 +36,14 @@
     <button
       class="btn btn-large w-10 button-oldSchool"
       role="button"
+      (click)="startPage()"
+      [disabled]="buttonActive"
+    >
+      Start
+    </button>
+    <button
+      class="btn btn-large w-10 button-oldSchool"
+      role="button"
       (click)="previousPage()"
       [disabled]="buttonActive"
     >
@@ -44,8 +53,17 @@
       class="btn btn-large w-10 button-oldSchool"
       role="button"
       (click)="nextPage()"
+      [disabled]="buttonActiveII"
     >
       Next
+    </button>
+    <button
+      class="btn btn-large w-10 button-oldSchool"
+      role="button"
+      (click)="FinalPage()"
+      [disabled]="buttonActiveII"
+    >
+      End
     </button>
   </div>
 </div>
