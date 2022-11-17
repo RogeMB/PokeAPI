@@ -78,7 +78,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   nextPage() {
-    if (this.pokemonServ.params.offset == 1140){
+    debugger;
+    if (this.pokemonServ.params.offset == 1140 || this.pokemonServ.params.offset >= 1120){
+      localStorage.setItem('value', 'final');
       this.next = this.pokemonServ.params.offset;
       this.pokemonServ
       .getPaginationNext(this.next)
@@ -91,6 +93,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
       });
     }else {
+      localStorage.removeItem('value');
       this.next = 20;
       this.pokemonServ
       .getPaginationNext(this.next)

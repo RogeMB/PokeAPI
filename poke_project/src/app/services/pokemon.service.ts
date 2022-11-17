@@ -73,7 +73,7 @@ export class PokemonService {
   }
 
   getPaginationNext(next: number) {
-    if (next > 1120) {
+    if (next >= 1140) {
       this.offsetPage = next;
       localStorage.setItem('value', 'final');
       return this.http
